@@ -1,7 +1,9 @@
 import {
-  Meta,   // Inyectar datos en el HTML
-  Links,  // Inyectar estilos css  
-  Outlet  // Inyectar lo de que encuentre en 'routes'
+  Meta,       // Inyectar datos en el HTML
+  Links,      // Inyectar estilos css  
+  Outlet,     // Inyectar lo de que encuentre en 'routes'
+  Scripts,    // Inyectar optimizacion de remix
+  LiveReload, // Renderizado automatico
 } from '@remix-run/react'
 import styles from './styles/index.css'
 import Header from './components/header'
@@ -18,7 +20,7 @@ export function meta() {                // El nombre 'meta' es obligatorio
 }
 
 //------------------------| Hojas de estilos |------------------------
-export function links() {
+export function links() {                // El nombre 'links' es obligatorio
   return (
     [
       {
@@ -55,17 +57,20 @@ export default function App() {
   )
 }
 
-//------------------------| Funcion secundaria |------------------------
+//------------------------| Funcion que dara formato |------------------------
 function Document({ children }) {
   return (
     <html>
       <head>
-        <Meta />
-        <Links />
+        <Meta />        {/* Informacion inyectada */}
+        <Links />       {/* Estilos inyectados */}
       </head>
       <body>
-        <Header />
-        {children}
+        <Header />      {/* Se inyecta en cada ruta */}
+        {children}      {/* Los componentes de carpeta 'routes' */}
+
+        <Scripts />     {/* Optimizacion de remix | evita flashasos */}
+        <LiveReload />  {/* Renderizado automatico | nota: volver a levantar la pagina */}
       </body>
     </html>
   )

@@ -1,4 +1,8 @@
-import React from 'react'
+export const meta = () => {
+  return ({
+    title: "GuitarLA - Nosotros"
+  })
+}
 
 const Nosotros = () => {
   return (
