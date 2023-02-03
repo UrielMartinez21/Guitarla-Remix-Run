@@ -7,6 +7,7 @@ import {
 } from '@remix-run/react'
 import styles from './styles/index.css'
 import Header from './components/header'
+import Footer from './components/footer'
 
 //------------------------| Metadatos |------------------------
 export function meta() {                // El nombre 'meta' es obligatorio
@@ -69,6 +70,7 @@ function Document({ children }) {
         <Header />      {/* Se inyecta en cada ruta */}
         {children}      {/* Los componentes de carpeta 'routes' */}
 
+        <Footer />
         <Scripts />     {/* Optimizacion de remix | evita flashasos */}
         <LiveReload />  {/* Renderizado automatico | nota: volver a levantar la pagina */}
       </body>
