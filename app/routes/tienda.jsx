@@ -3,7 +3,14 @@ import { getGuitarras } from "~/models/guitarras.server"    // Obtener datos del
 import Guitarra from '~/components/guitarra'
 import styles from '../styles/guitarras.css'
 
-export const links = () => {
+export const meta = () => {
+  return {
+    title: "GuitarLA - Tienda de guitarras",
+    descrition: "GuitarLA - Nuestra colección de guitarras"
+  }
+}
+
+export const links = () => {              // Todo lo que coloque se aplica a todo el archivo
   return [
     {
       rel: 'stylesheet',

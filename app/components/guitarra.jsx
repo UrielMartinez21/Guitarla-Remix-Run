@@ -10,7 +10,12 @@ const Guitarra = ({ guitarra }) => {
         <h3>{nombre}</h3>
         <p className="descripcion">{descripcion}</p>
         <p className="precio">{precio}</p>
-        <Link className='enlace' to={`/guitarra/${url}`}>Ver producto</Link>
+        <Link
+          className='enlace'
+          to={`/guitarras/${url}`}  // 'guitarras' tiene que tener el nombre de la carpeta dentro de 'routes'
+        >
+          Ver producto
+        </Link>
       </div>
     </div>
   )
