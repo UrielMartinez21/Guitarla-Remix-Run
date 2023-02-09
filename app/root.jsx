@@ -4,6 +4,8 @@ import {
   Outlet,     // Inyectar lo de que encuentre en 'routes'
   Scripts,    // Inyectar optimizacion de remix
   LiveReload, // Renderizado automatico
+  useCatch,   // Manejo de errores
+  Link
 } from '@remix-run/react'
 import styles from './styles/index.css'
 import Header from './components/header'
@@ -75,5 +77,26 @@ function Document({ children }) {
         <LiveReload />  {/* Renderizado automatico | nota: volver a levantar la pagina */}
       </body>
     </html>
+  )
+}
+
+//------------------------| Manejo de errores |------------------------
+//---> Cuando haya un error estos dos archivos se ejecutaran
+export const CatchBoundary = () => {
+  const error = useCatch()
+  return (
+    <Document>
+      <p className='error'>{error.status}{error.statusText}</p>
+      <Link className='error-enlace' to='/' >Tal vez quieras volver a la pagina principal</Link>
+    </Document>
+  )
+}
+
+export const ErrorBoundary = ({ error }) => {
+  return (
+    <Document>
+      <p className='error'>{error.status}{error.statusText}</p>
+      <Link className='error-enlace' to='/' >Tal vez quieras volver a la pagina principal</Link>
+    </Document>
   )
 }
