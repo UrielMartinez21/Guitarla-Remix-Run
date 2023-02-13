@@ -8,6 +8,13 @@ export const loader = async () => {
   return posts.data
 }
 
+export const meta = () => {
+  return {
+    title: 'GuitarLA - Nuestro blog',
+    descripcion: 'GuitarLA - Blog de musica y venta de guitarras'
+  }
+}
+
 export const links = () => {
   return [
     {
